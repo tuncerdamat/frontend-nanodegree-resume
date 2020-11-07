@@ -97,6 +97,7 @@ $('#main').append(bio.contactInfo);
 $('#main').append(bio.pictureURL);
 $('#main').append(work.currentJob);
 $('#main').append(education['nameOfTheLastSchoolAttended']);
+$('#main').append(internationalizeButton);
 
 function displayWork() {
     work.jobs.forEach(function (jobObject) {
