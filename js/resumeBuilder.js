@@ -62,6 +62,21 @@ var projects = {
     ]
 };
 
+projects.display = function () {
+    this.projects.forEach(function (project) {
+        $('#projects').append(HTMLprojectStart);
+
+        $('.project-entry:last').append(HTMLprojectTitle.replace('%data%', project.title));
+        $('.project-entry:last').append(HTMLprojectDates.replace('%data%', project.dates));
+        $('.project-entry:last').append(HTMLprojectDescription.replace('%data%', project.description));
+        if(project.images.length > 0){
+            project.images.forEach(function (image) {
+                $('.project-entry:last').append(HTMLprojectImage.replace('%data%', image));
+            });
+        }
+    });
+}
+
 work.currentJob = 'Web Developer';
 work.employer = 'Lenis S.r.l';
 work.yearsWorked = 5;
@@ -112,3 +127,4 @@ function displayWork() {
 }
 
 displayWork();
+projects.display();
