@@ -98,12 +98,16 @@ $('#main').append(bio.pictureURL);
 $('#main').append(work.currentJob);
 $('#main').append(education['nameOfTheLastSchoolAttended']);
 
-work.jobs.forEach(function (jobObject) {
-    $('#workExperience').append(HTMLworkStart);
+function displayWork() {
+    work.jobs.forEach(function (jobObject) {
+        $('#workExperience').append(HTMLworkStart);
 
-    $('.work-entry:last').append(
-        HTMLworkEmployer.replace('%data%', jobObject.employer)
+        $('.work-entry:last').append(
+            HTMLworkEmployer.replace('%data%', jobObject.employer)
             + HTMLworkTitle.replace('%data%', jobObject.title));
-    $('.work-entry:last').append(HTMLworkDates.replace('%data%', jobObject.dates));
-    $('.work-entry:last').append(HTMLworkDescription.replace('%data%', jobObject.description));
-});
+        $('.work-entry:last').append(HTMLworkDates.replace('%data%', jobObject.dates));
+        $('.work-entry:last').append(HTMLworkDescription.replace('%data%', jobObject.description));
+    });
+}
+
+displayWork();
