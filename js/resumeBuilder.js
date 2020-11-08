@@ -11,9 +11,14 @@ var formattedName = HTMLheaderName.replace('%data%', name),
 var bio = {
     name: name,
     role: role,
+    contacts: {
+        location: "Milan",
+    },
     contactInfo: 'tuncer.damat@gmail.com',
-    pictureURL: 'https://media.licdn.com/dms/image/C4D03AQFotJdMkxtD-A/profile-displayphoto-shrink_200_200/0?e=1581552000&v=beta&t=iR-dhEIGFoniL4Ov1Vqw9JHXMGdYmY-SuhMg2G4OiAM'
+    pictureURL: 'https://media-exp1.licdn.com/dms/image/C4D03AQFotJdMkxtD-A/profile-displayphoto-shrink_200_200/0?e=1610582400&v=beta&t=Grg2n9W8Nm8TzjRbx9-jkoV1ZMvTpsLGxVpHaFux07k'
 };
+
+var formattedBioPic = HTMLbioPic.replace('%data%', bio.pictureURL);
 
 var work = {
     "jobs": [
@@ -106,13 +111,11 @@ var education = {
 
 $('#header').append(formattedName);
 $('#header').append(formattedRole);
-$('#main').append(bio.name);
-$('#main').append(bio.role);
-$('#main').append(bio.contactInfo);
-$('#main').append(bio.pictureURL);
+$('#header').append(formattedBioPic);
 $('#main').append(work.currentJob);
 $('#main').append(education['nameOfTheLastSchoolAttended']);
 $('#main').append(internationalizeButton);
+$('#mapDiv').append(googleMap);
 
 function displayWork() {
     work.jobs.forEach(function (jobObject) {
